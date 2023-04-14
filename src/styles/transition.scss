@@ -1,0 +1,16 @@
+.breadcrumb-enter-active,
+.breadcrumb-leave-active {
+  transition: all 0.5s;
+}
+
+/* 代码中的 leave-active 改成 leave-to 更合适一些 */
+.breadcrumb-enter-from,
+.breadcrumb-leave-to {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.breadcrumb-leave-active {
+  display: inline-block; /* 加上这一句防止布局方式变化引起的最左侧重影问题 */
+  position: absolute;
+}
