@@ -1,9 +1,7 @@
+import i18n from "@/i18n"
 const validatePassword = (rule, value, callback) => {
   if (value.length < 6) {
-    callback(new Error("密码不能小于6位"))
-  }
-  if (value.length > 10) {
-    callback(new Error("密码不能大于10位"))
+    callback(new Error(i18n.global.t("msg.login.passwordRule")))
   } else {
     callback()
   }

@@ -13,6 +13,9 @@ module.exports = defineConfig({
   transpileDependencies: true,
   configureWebpack: {
     plugins: [
+      require("unplugin-element-plus/webpack")({
+        // options
+      }),
       AutoImport({
         resolvers: [
           ElementPlusResolver(),
@@ -41,6 +44,7 @@ module.exports = defineConfig({
   },
   // svg-sprite-loader 处理svg的配置项
   chainWebpack(config) {
+    config.resolve.alias.set("vue-i18n", "vue-i18n/dist/vue-i18n.cjs.js")
     config.module.rule("svg").exclude.add(resolve("src/icons")).end()
     config.module
       .rule("icon")

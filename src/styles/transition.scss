@@ -14,3 +14,16 @@
   display: inline-block; /* 加上这一句防止布局方式变化引起的最左侧重影问题 */
   position: absolute;
 }
+
+// 路由切换动画
+.fade-transform-enter-active{
+  transition: all 0.5s;
+}
+.fade-transform-enter-from {
+opacity: 0;
+transform: translateX(-30px);
+}
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}

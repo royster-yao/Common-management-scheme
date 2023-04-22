@@ -6,7 +6,8 @@
       :rules="loginRules"
       :model="loginForm">
       <div class="title-container">
-        <h3 class="title">用户登录</h3>
+        <h3 class="title">{{ $t("msg.login.title") }}</h3>
+        <lang-select class="lang-select"></lang-select>
       </div>
       <!-- username -->
       <el-form-item prop="username">
@@ -41,17 +42,19 @@
         style="width: 100%; margin-bottom: 30px"
         @click="handlerLogin"
         :loading="loading"
-        >登录</el-button
+        >{{ $t("msg.login.loginBtn") }}</el-button
       >
+      <div class="tips" v-html="$t('msg.login.desc')"></div>
     </el-form>
   </div>
 </template>
 
 <script setup>
-import SvgIcon from "@/components/SvgIcon/SvgIcon.vue"
+import LangSelect from "@/components/langSelect/index.vue"
 import { reactive, ref } from "vue"
 import validateForm from "@/utils/login/validateForm"
 import { useStore } from "vuex"
+import { useI18n } from "vue-i18n"
 // 数据源
 const loginForm = reactive({
   username: "super-admin",
@@ -59,11 +62,12 @@ const loginForm = reactive({
 })
 
 // 验证规则
+const i18n = useI18n()
 const loginRules = reactive({
   username: [
     {
       required: true,
-      message: "用户名为必填项",
+      message: i18n.t("msg.login.usernameRule"),
       trigger: "blur",
     },
   ],
@@ -205,6 +209,16 @@ $cursor: #fff;
     color: $dark_gray;
     cursor: pointer;
     user-select: none;
+  }
+  .lang-select {
+    position: absolute;
+    top: 4px;
+    right: 0;
+    background-color: #fff;
+    font-size: 22px;
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
   }
 }
 </style>
