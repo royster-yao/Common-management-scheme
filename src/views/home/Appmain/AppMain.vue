@@ -35,8 +35,7 @@ const store = useStore()
 const route = useRoute()
 watch(
   route,
-  (to, from) => {
-    console.log(from)
+  (to) => {
     if (!isTags(to.path)) return
     const { fullPath, meta, name, params, path, query } = to
     store.commit("app/addTagsViewList", {
