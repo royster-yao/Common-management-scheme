@@ -17,7 +17,7 @@
       <app-main
         :style="{
           padding: $store.getters.sidebarOpened
-            ? '105px 20px 20px 20px'
+            ? '105px 25px 20px 20px'
             : '20px',
         }" />
     </div>

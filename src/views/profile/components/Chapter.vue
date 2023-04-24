@@ -1,7 +1,28 @@
 <template>
-  <div>章节</div>
+  <el-timeline>
+    <el-timeline-item
+      v-for="item in chapterData"
+      :key="item.id"
+      :timestamp="item.timestamp"
+      placement="top">
+      <el-card>
+        <h4>{{ item.content }}</h4>
+      </el-card>
+    </el-timeline-item>
+  </el-timeline>
 </template>
 
-<script setup></script>
+<script setup>
+import { chapter } from "@/api/user"
+import { ref } from "vue"
+import { watchSwitchLang } from "@/utils/i18n/i18n"
+
+let chapterData = ref([])
+const getChapterData = async () => {
+  chapterData.value = await chapter()
+}
+getChapterData()
+watchSwitchLang(getChapterData)
+</script>
 
 <style scoped lang="scss"></style>

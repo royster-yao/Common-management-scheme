@@ -92,10 +92,10 @@ export default {
     feature: "Feature",
     chapter: "Chapter",
     author: "Author",
-    name: "Sunday",
+    name: "royster yao",
     job: "A front-end development program",
     Introduction:
-      "A senior technical expert, once worked in a domestic first-line Internet company, and has coordinated multiple large-scale projects with more than tens of millions of users. Committed to researching big front-end technology, he has been invited to participate in domestic front-end technology sharing sessions many times, such as: Google China Technology Sharing Session in 2018.",
+      "Front-end apprentices, understand the use of CSS3, proficient in HTML5, can use Javascript, Typescript for development, have a certain Node back-end foundation, proficient in using element-ui, element-plus and other UI frameworks",
   },
   userInfo: {
     print: "Print",

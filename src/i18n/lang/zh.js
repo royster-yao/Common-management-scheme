@@ -91,10 +91,10 @@ export default {
     feature: "功能",
     chapter: "章节",
     author: "作者",
-    name: "Sunday",
+    name: "姚",
     job: "一个前端开发程序猿",
     Introduction:
-      "高级技术专家，曾就职于国内一线互联网公司，统筹过的多个大型项目用户数已过千万级。致力于研究大前端技术，多次受邀参加国内前端技术分享会，如：2018 年 Google 中国技术分享会。",
+      "前端学徒，了解CSS3的使用，熟练掌握HTML5,可以使用Javascript,Typescript进行开发，有一定的Node后端基础，熟练使用element-ui,element-plus等ui框架",
   },
   userInfo: {
     print: "打印",
