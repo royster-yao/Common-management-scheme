@@ -12,6 +12,16 @@ export const getUserManageList = (data) => {
   })
 }
 /**
+ * 获取所有用户数据列表
+ * @param {*} data
+ * @returns
+ */
+export const getUserManageAllList = () => {
+  return request({
+    url: "/user-manage/all-list",
+  })
+}
+/**
  * 批量上传
  * @param {*} data
  * @returns
@@ -21,5 +31,15 @@ export const userBatchImport = (data) => {
     url: "/user-manage/batch/import",
     method: "POST",
     data,
+  })
+}
+/**
+ * 删除指定用户
+ * @param {*} id
+ * @returns
+ */
+export const deleteUser = (id) => {
+  return request({
+    url: `/user-manage/detele/${id}`,
   })
 }
