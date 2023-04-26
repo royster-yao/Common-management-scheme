@@ -7,13 +7,13 @@
       <el-col :span="18">
         <el-card>
           <el-tabs v-model="activeName">
-            <el-tab-pane :label="$t('msg.profile.feature')">
+            <el-tab-pane :label="$t('msg.profile.feature')" name="feature">
               <feature :features="featureData" />
             </el-tab-pane>
-            <el-tab-pane :label="$t('msg.profile.chapter')">
+            <el-tab-pane :label="$t('msg.profile.chapter')" name="chapter">
               <chapter />
             </el-tab-pane>
-            <el-tab-pane :label="$t('msg.profile.author')">
+            <el-tab-pane :label="$t('msg.profile.author')" name="author">
               <author />
             </el-tab-pane>
           </el-tabs>
@@ -32,7 +32,7 @@ import { feature as fea } from "@/api/user"
 import { ref } from "vue"
 import { watchSwitchLang } from "@/utils/i18n/i18n"
 
-const activeName = ref("featrue")
+const activeName = ref("feature")
 let featureData = ref([])
 const getFeatureData = async () => {
   featureData.value = await fea()

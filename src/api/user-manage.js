@@ -22,6 +22,16 @@ export const getUserManageAllList = () => {
   })
 }
 /**
+ * 获取用户详情
+ * @param {*} id
+ * @returns
+ */
+export const userDetail = (id) => {
+  return request({
+    url: `/user-manage/detail/${id}`,
+  })
+}
+/**
  * 批量上传
  * @param {*} data
  * @returns
