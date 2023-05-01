@@ -12,7 +12,7 @@ export default {
       name: "articleCreate",
       component: () => import("@/views/article-create/index.vue"),
       meta: {
-        title: "articleDetail",
+        title: "articleCreate",
         icon: "article-create",
       },
     },
