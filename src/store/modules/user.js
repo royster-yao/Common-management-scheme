@@ -4,6 +4,8 @@ import { setItem, getItem, removeAllItem } from "@/utils/storeage/storage"
 import { TOKEN } from "@/constant"
 import router from "@/router"
 import { setTimeStamp } from "@/utils/logout/auth"
+import { resetRouter } from "@/router/index"
+
 export default {
   namespaced: true,
   state: () => ({
@@ -60,6 +62,7 @@ export default {
      * 退出登录
      */
     logout() {
+      resetRouter()
       this.commit("user/setToken", "")
       this.commit("user/setUserInfo", {})
       removeAllItem()

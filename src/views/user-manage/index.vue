@@ -2,9 +2,12 @@
   <div class="user-manage-container">
     <el-card class="header">
       <div>
-        <el-button @click="onClickExcelClick" type="primary">{{
-          $t("msg.excel.importExcel")
-        }}</el-button>
+        <el-button
+          @click="onClickExcelClick"
+          type="primary"
+          v-permission="['importUser']"
+          >{{ $t("msg.excel.importExcel") }}</el-button
+        >
         <el-button @click="onToExcelClick" type="success">{{
           $t("msg.excel.exportExcel")
         }}</el-button>
@@ -64,10 +67,18 @@
               @click="onShowClick(row._id)">
               {{ $t("msg.excel.show") }}
             </el-button>
-            <el-button type="info" size="small">
+            <el-button
+              type="info"
+              @click="onShowRoleClick(row)"
+              size="small"
+              v-permission="['distributeRole']">
               {{ $t("msg.excel.showRole") }}
             </el-button>
-            <el-button @click="onRemoveClick(row)" type="danger" size="small">
+            <el-button
+              @click="onRemoveClick(row)"
+              type="danger"
+              size="small"
+              v-permission="['removeUser']">
               {{ $t("msg.excel.remove") }}
             </el-button>
           </template>
@@ -86,17 +97,23 @@
     </el-card>
 
     <export-to-excel v-model="exportToExcelVisiable"></export-to-excel>
+    <roles-dialog
+      v-model="roleDialogVisible"
+      :userId="selectUserId"
+      @updateRole="getListData"></roles-dialog>
   </div>
 </template>
 
 <script setup>
-import { ref, onActivated } from "vue"
+import { ref, onActivated, watch } from "vue"
 import { getUserManageList, deleteUser } from "@/api/user-manage"
 import { watchSwitchLang } from "@/utils/i18n/i18n"
 import { useRouter } from "vue-router"
 import { ElMessageBox, ElMessage } from "element-plus"
 import { useI18n } from "vue-i18n"
 import ExportToExcel from "./components/Export2Excel.vue"
+import RolesDialog from "./components/roles.vue"
+
 // 数据相关
 const tableData = ref([])
 const total = ref(0)
@@ -128,6 +145,18 @@ const router = useRouter()
 const onShowClick = (id) => {
   router.push(`/user/info/${id}`)
 }
+
+// 为员工分配角色
+const roleDialogVisible = ref(false)
+const selectUserId = ref("")
+const onShowRoleClick = (row) => {
+  roleDialogVisible.value = true
+  selectUserId.value = row._id
+}
+// 保证每次打开dialog都可以重新获取数据
+watch(roleDialogVisible, (val) => {
+  if (!val) selectUserId.value = ""
+})
 
 // 删除用户
 const i18n = useI18n()
