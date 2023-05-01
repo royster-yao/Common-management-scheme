@@ -208,6 +208,7 @@ const onToExcelClick = () => {
     text-align: center;
   }
   :deep(.el-input__wrapper) {
+    border: 1px solid #86d0eb;
     position: relative;
     .el-input__suffix {
       position: absolute;

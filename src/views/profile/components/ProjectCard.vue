@@ -61,13 +61,12 @@
 <script setup>
 import PanThumb from "@/components/PanThumb/inde.vue"
 import { defineProps } from "vue"
-const props = defineProps({
+defineProps({
   features: {
     type: Array,
     required: true,
   },
 })
-console.log(props.features)
 </script>
 
 <style scoped lang="scss">

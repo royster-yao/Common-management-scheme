@@ -144,7 +144,10 @@ watchSwitchLang(() => {
     }
   }
   :deep(.el-input__inner) {
-    padding-bottom: 10px !important;
+    padding-bottom: 20px !important;
+  }
+  :deep(.el-input__wrapper) {
+    border: 1px solid #87cae9;
   }
 }
 </style>
