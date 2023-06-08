@@ -11,7 +11,7 @@ const service = axios.create({
 // 请求拦截器
 service.interceptors.request.use((config) => {
   // 添加 icode
-  config.headers.icode = "42085307C26E8574"
+  config.headers.icode = "C395DD77276F464B"
   // 必须返回 config
   return config
 })
